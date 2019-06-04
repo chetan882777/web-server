@@ -1,19 +1,10 @@
 const express = require("express")
+const path = require("path")
 
 const app = express()
+const publicDirPath = path.join(__dirname , '../public')
 
-app.get('', (req, res) => {
-    res.send("Hello Express!")
-})
-
-app.get('/help', (req, res) => {
-    res.send("Help Page.")
-})
-
-app.get('/about', (req, res) => {
-    res.send("<h1>About Page</h1>")
-})
-
+app.use(express.static(publicDirPath))
 
 app.listen(3000, () => {
     console.log('Server is up on port 3000')
