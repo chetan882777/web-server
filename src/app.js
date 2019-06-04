@@ -37,6 +37,20 @@ app.get('/about', (req, res) =>  {
     })
 })
 
+app.get('/weather', (req, res) =>  {
+    if(!req.query.address){
+        return res.send({
+            error: 'You must provide address!'
+        })
+    }
+
+    res.send({
+        forecast: 'It is sunny!',
+        location: 'Barwani, Madhya Pradesh, India'
+    })
+})
+
+
 app.get('/help/*', (req, res) =>  {
     res.render('404', {
         title: '404 help',
